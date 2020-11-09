@@ -41,24 +41,36 @@ nav {
     position: absolute;
     bottom: 0;
     right: 0;
+    height: 50%;
+    width: 65%;
 }
 
-#mainMenu {
+#mainMenu ul {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-end;
     margin: 0;
+    height: 100%;
+    width: 100%;
 }
 
-#mainMenu > li {
-    padding: 0.5em;
+#mainMenu ul li {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 50px;
+    width: 25%;
     list-style: none;
-    font-size: 20px;
+    font-size: 1.5vw;
+    transition: background-color 0.5s ease-in-out;
+    transition: font-size 0.3s cubic-bezier(.5,0,.69,1.7);
+    height: 100%;
+    text-align: center;
 }
 
-#mainMenu > li:hover {
-    background-color: rgba(145, 34, 34, 0.5);
-    color: white;
+#mainMenu ul li:hover {
+    background-color: rgb(172, 0, 0);
+    font-size: 2.5vw;
+    color: black;
 }
 
 #banniere_image {
@@ -88,10 +100,11 @@ section {
     flex-flow: row wrap;
     justify-content: space-around;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
 }
+
 section article {
-    min-width: 60vw;
-    flex: 1;
+    flex: 2 1 400px;
     height: 100%;
     margin: 20px;
 }
@@ -106,29 +119,36 @@ section article h2 {
 
 section aside {
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row wrap;
     justify-content: space-around;
     background-color: rgba(97, 97, 97, 0.701);
     border-radius: 10%;
-    min-width: 200px;
-    flex: 1;
+    flex: 1 2 200px;
+    width: 100%;
     padding: 20px 0 20px;
     margin: 20px;
+}
+
+@media screen (width < 920px) {
+    section aside {
+        flex-flow: row nowrap;
+    }
 }
 
 section aside h3 {
     color: white;
     align-self: center;
     margin: 0;
-    padding: 0;
-    font-size: 3em;
+    padding: 10px 0 10px;
+    font-size: 2.5em;
 }
 
 section aside ul {
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: column wrap;
     align-items: center;
     justify-content: space-around;
+    min-width: 20%;
     margin: 0;
     padding: 0;
 }
@@ -141,11 +161,11 @@ section aside ul li {
 
 section aside ul img {
     max-width: 50px;
+    transition-duration: 0.5s;
+    transition-property: transform;
 }
 
 section aside ul img:hover {
-    transition-duration: 0.5s;
-    transition-property: transform;
     transform: rotate(1turn) scale(1.25,1.25);
 }
 
@@ -169,7 +189,7 @@ footer {
     border-radius: 0 0 2% 2%;
 }
 
-footer * {
+footer > * {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 }
@@ -217,6 +237,12 @@ footer * {
     padding: 0;
     border: 5px solid black;
     border-radius: 3%;
+    transition: all 0.3s ease-in-out;
+}
+
+#mes_photos .cliches:hover {
+    width: 11vw;
+    height: 11vw;
 }
 
 #mes_photos h3:first-child {
@@ -245,4 +271,60 @@ footer * {
     width: 100%;
     align-self: stretch;
     text-align: center;
+}
+
+#mes_amis ul {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    list-style: none;
+    padding: 0;
+    height: 80%;
+}
+
+#mes_amis ul li {
+    background-color: rgba(255, 0, 0, 0);
+    color: black;
+    transition-duration: 0.3s;
+    transition-property: background-color color font-size;
+    font-size: 20px;
+    width: 90%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: none;
+}
+
+li a {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+#mes_amis ul li:hover {
+    font-size: 25px;
+    color: white;
+    background-color: rgba(255, 0, 0, 1);
+}
+
+a:visited {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+a:link {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.important-link a {
+    transition-duration: 0.3s;
+    transition-property: font-size;
+    font-size: 30px;
+}
+
+.important-link:hover a {
+    font-size: 40px;
 }
